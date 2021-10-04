@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.rcyono.schedulereskul.ui.splashscreen.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.rcyono.schedulereskul.ui.login.signin.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_bottomNavFragment"
+            app:destination="@id/bottomNavFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/signInFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.rcyono.schedulereskul.ui.login.signup.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/bottomNavFragment"
+        android:name="com.rcyono.schedulereskul.ui.bottommenunav.BottomNavFragment"
+        android:label="fragment_bottom_nav"
+        tools:layout="@layout/fragment_bottom_nav" >
+        <action
+            android:id="@+id/action_bottomNavFragment_to_addSchedulerFragment"
+            app:destination="@id/addSchedulerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addSchedulerFragment"
+        android:name="com.rcyono.schedulereskul.ui.add.AddSchedulerFragment"
+        android:label="fragment_add_scheduler"
+        tools:layout="@layout/fragment_add_scheduler" >
+        <argument
+            android:name="Scheduler"
+            app:argType="com.rcyono.schedulereskul.model.schedule.Schedule"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>

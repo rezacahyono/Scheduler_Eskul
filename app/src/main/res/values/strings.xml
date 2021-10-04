@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">SchedulerEskulUas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_splash">Scheduler Eskul</string>
+    <string name="title_signin">Sign in</string>
+    <string name="title_slogan">And save\nyour schedule eskul</string>
+    <string name="btn_title_signup"><u>Sign up</u></string>
+    <string name="dont_have_account">dont have account?</string>
+    <string name="cancel">Cancel</string>
+    <string name="login">Login</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_username">Username</string>
+    <string name="title_sign_up">Sign up</string>
+    <string name="hint_email">Email</string>
+    <string name="title_registered">Registered</string>
+    <string name="home">Home</string>
+    <string name="collection">Collection</string>
+    <string name="history">History</string>
+    <string name="profile">Profile</string>
+    <string name="favorite">Favorite</string>
+    <string name="field_not_empty">Field not can not be empty</string>
+    <string name="title_event_eskul">Event eskul</string>
+    <string name="dummy_name">Reza</string>
+    <string name="schedule_eskul">Schedule eskul</string>
+    <string name="dummy_type">Futsal</string>
+</resources>

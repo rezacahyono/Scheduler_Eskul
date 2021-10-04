@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.rcyono.schedulereskul.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_addSchedulerFragment"
+            app:destination="@id/addSchedulerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/collectionFragment"
+        android:name="com.rcyono.schedulereskul.ui.collection.CollectionFragment"
+        android:label="fragment_collection"
+        tools:layout="@layout/fragment_collection" >
+        <action
+            android:id="@+id/action_collectionFragment_to_detailEventFragment"
+            app:destination="@id/detailEventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.rcyono.schedulereskul.ui.favorite.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.rcyono.schedulereskul.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/detailEventFragment"
+        android:name="com.rcyono.schedulereskul.ui.detailevent.DetailEventFragment"
+        android:label="fragment_detail_event"
+        tools:layout="@layout/fragment_detail_event" >
+        <argument android:name="Event"
+            app:argType="com.rcyono.schedulereskul.model.event.Event"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/addSchedulerFragment"
+        android:name="com.rcyono.schedulereskul.ui.add.AddSchedulerFragment"
+        android:label="fragment_add_scheduler"
+        tools:layout="@layout/fragment_add_scheduler" >
+        <argument
+            android:name="Scheduler"
+            app:argType="com.rcyono.schedulereskul.model.schedule.Schedule"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>
