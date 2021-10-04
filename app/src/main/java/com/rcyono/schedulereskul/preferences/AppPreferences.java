@@ -12,6 +12,8 @@ public class AppPreferences {
     private final static String EMAIL_LOGIN = "email_login";
     private final static String AVATAR_LOGIN = "avatar_login";
 
+    private static final String DARK_MODE = "dark_mode";
+
     private final SharedPreferences preferences;
 
     public AppPreferences(Context context) {
@@ -35,4 +37,15 @@ public class AppPreferences {
         editor.putString(AVATAR_LOGIN, user.getImagePath());
         editor.apply();
     }
+
+    public void setDarkMode(Boolean mode) {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(DARK_MODE, mode);
+        editor.apply();
+    }
+
+    public boolean getDarkMode() {
+        return preferences.getBoolean(DARK_MODE, false);
+    }
+
 }

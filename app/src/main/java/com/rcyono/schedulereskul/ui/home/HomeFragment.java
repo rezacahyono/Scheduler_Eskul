@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,10 +28,11 @@ import com.smarteist.autoimageslider.SliderView;
 import java.util.ArrayList;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener{
     private RecyclerView rvSchedule;
     private ImageView ivAvatar;
     private ProgressBar progressBar;
+    private ImageButton btnSetting;
 
     private SliderView sliderEventView;
     private SliderImageEventAdapter sliderImageEventAdapter;
@@ -46,6 +49,7 @@ public class HomeFragment extends Fragment {
         rvSchedule = view.findViewById(R.id.rv_schedule);
         ivAvatar = view.findViewById(R.id.iv_avatar);
         progressBar = view.findViewById(R.id.progress_bar);
+        btnSetting = view.findViewById(R.id.btn_setting);
         return view;
     }
 
@@ -58,6 +62,8 @@ public class HomeFragment extends Fragment {
 
         AppPreferences preferences = new AppPreferences(requireActivity());
         user = preferences.getUser();
+
+        btnSetting.setOnClickListener(this);
 
         HomeViewModel homeViewModel = new ViewModelProvider(requireActivity(), new ViewModelProvider.NewInstanceFactory()).get(HomeViewModel.class);
         homeViewModel.getEvent().observe(requireActivity(), event -> {
@@ -83,6 +89,13 @@ public class HomeFragment extends Fragment {
         setSlideEvent();
         setupRecylerSchedule();
         setAvatar(view);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.btn_setting) {
+            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_settingFragment);
+        }
     }
 
     private void setSlideEvent() {

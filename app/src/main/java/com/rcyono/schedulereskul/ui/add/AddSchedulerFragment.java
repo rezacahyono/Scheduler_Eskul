@@ -21,6 +21,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.rcyono.schedulereskul.R;
 import com.rcyono.schedulereskul.model.schedule.Schedule;
@@ -41,6 +43,9 @@ public class AddSchedulerFragment extends Fragment implements View.OnClickListen
     private Button btnSave;
     private ImageButton btnDelete;
     private ProgressBar progressBar;
+
+    private BottomAppBar bottomAppBar;
+    private FloatingActionButton fabAdd;
 
     private AddViewModel addViewModel;
     private User user;
@@ -98,11 +103,12 @@ public class AddSchedulerFragment extends Fragment implements View.OnClickListen
             titleDialog = "Update Success!";
             btnDelete.setVisibility(View.VISIBLE);
 
-//            assert getParentFragment() != null;
-//            BottomAppBar bottomAppBar = getParentFragment().requireActivity().findViewById(R.id.layout_bottom_app_bar);
-//            FloatingActionButton fabAdd = getParentFragment().requireActivity().findViewById(R.id.fab_add);
-//            bottomAppBar.setVisibility(View.GONE);
-//            fabAdd.setVisibility(View.GONE);
+            if (getParentFragment() != null) {
+                bottomAppBar = getParentFragment().requireActivity().findViewById(R.id.layout_bottom_app_bar);
+                fabAdd = getParentFragment().requireActivity().findViewById(R.id.fab_add);
+                bottomAppBar.setVisibility(View.GONE);
+                fabAdd.setVisibility(View.GONE);
+            }
         }else {
             schedule = new Schedule();
             titleDialog = "Register Success!";
@@ -255,5 +261,14 @@ public class AddSchedulerFragment extends Fragment implements View.OnClickListen
             }
         }, hour, minute, true);
         timePickerDialog.show();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (schedule.getId() != null) {
+            bottomAppBar.setVisibility(View.VISIBLE);
+            fabAdd.setVisibility(View.VISIBLE);
+        }
     }
 }

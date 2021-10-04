@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.favorite.FavoriteFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/history" />
+    <include android:id="@+id/toolbar"
+        layout="@layout/main_toolbar"/>
 
-</FrameLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_favorite"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="invisible"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:listitem="@layout/item_list_event"/>
+            
+            <ImageView
+                android:id="@+id/iv_empty_fav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_empty_fav"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:contentDescription="@null"/>
+
+            <TextView
+                android:id="@+id/tv_title_empty_fav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_empty_fav"
+                android:fontFamily="@font/montserrat"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/iv_empty_fav"
+                app:layout_constraintStart_toStartOf="@id/iv_empty_fav"
+                app:layout_constraintEnd_toEndOf="@id/iv_empty_fav"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

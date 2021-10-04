@@ -80,10 +80,6 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         });
 
         loginViewModel.isLoading().observe(requireActivity(), load -> {
-            alertDialog = new SweetAlertDialog(requireActivity(), SweetAlertDialog.PROGRESS_TYPE);
-            alertDialog.getProgressHelper().setBarColor(getResources().getColor(R.color.blue_main));
-            alertDialog.setTitleText("Loading");
-            alertDialog.setCancelable(false);
             if (load) {
                 progressBar.setVisibility(View.VISIBLE);
             }else {

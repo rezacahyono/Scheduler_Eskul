@@ -23,4 +23,7 @@ interface FavoriteEventDao {
     @Delete
     void deleteFavEvent(FavoriteEvent favoriteEvent);
 
+    @Query("SELECT COUNT(id) FROM favoriteevent WHERE id=:favId")
+    LiveData<Integer> checkIsFav(int favId);
+
 }

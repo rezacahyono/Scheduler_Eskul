@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -17,6 +18,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.rcyono.schedulereskul.R;
+import com.rcyono.schedulereskul.preferences.AppPreferences;
 
 @SuppressLint("CustomSplashScreen")
 public class SplashScreenFragment extends Fragment {
@@ -33,8 +35,14 @@ public class SplashScreenFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Handler handler = new Handler(Looper.getMainLooper());
+        AppPreferences preferences = new AppPreferences(requireActivity());
+
         handler.postDelayed(() -> {
-            Navigation.findNavController(view).navigate(R.id.action_splashScreenFragment_to_signInFragment);
+            if (!preferences.getUser().getUsername().isEmpty()) {
+                Navigation.findNavController(view).navigate(R.id.action_splashScreenFragment_to_bottomNavFragment);
+            }else {
+                Navigation.findNavController(view).navigate(R.id.action_splashScreenFragment_to_signInFragment);
+            }
         }, TIME_SPLASH);
     }
 }

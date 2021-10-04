@@ -1,6 +1,11 @@
 package com.rcyono.schedulereskul.ui.collection;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,26 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import android.widget.Toolbar;
-
 import com.rcyono.schedulereskul.R;
 import com.rcyono.schedulereskul.ui.home.HomeViewModel;
 
-import cn.pedant.SweetAlert.SweetAlertDialog;
-
 
 public class CollectionFragment extends Fragment {
-    private SweetAlertDialog alertDialog;
-    private HomeViewModel collectionViewModel;
     private RecyclerView rvEvent;
     private Toolbar toolbar;
     private ProgressBar progressBar;
 
     private ListItemEventAdapter listItemEventAdapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,12 +41,10 @@ public class CollectionFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         requireActivity().setActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
-        toolbar.setNavigationOnClickListener(v -> requireActivity().onBackPressed());
 
-        listItemEventAdapter = new ListItemEventAdapter();
+        listItemEventAdapter = new ListItemEventAdapter(0);
 
-        collectionViewModel = new ViewModelProvider(requireActivity(), new ViewModelProvider.NewInstanceFactory()).get(HomeViewModel.class);
+        HomeViewModel collectionViewModel = new ViewModelProvider(requireActivity(), new ViewModelProvider.NewInstanceFactory()).get(HomeViewModel.class);
         collectionViewModel.getEvent().observe(requireActivity(), event -> {
             listItemEventAdapter.setAdapter(event.getImage());
         });
@@ -58,7 +52,7 @@ public class CollectionFragment extends Fragment {
         collectionViewModel.isLoading().observe(requireActivity(), load -> {
             if (load) {
                 progressBar.setVisibility(View.VISIBLE);
-            }else {
+            } else {
                 progressBar.setVisibility(View.GONE);
             }
         });

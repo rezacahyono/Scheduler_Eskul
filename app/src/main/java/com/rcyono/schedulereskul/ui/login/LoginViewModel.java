@@ -71,7 +71,6 @@ public class LoginViewModel extends ViewModel {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         mUserResponse.setValue(response.body());
-
                     }
                 } else {
                     Log.d(TAG, "onResponse: " + response.message());
