@@ -91,6 +91,8 @@ public class AddSchedulerFragment extends Fragment implements View.OnClickListen
         AppPreferences preferences = new AppPreferences(requireActivity());
         user = preferences.getUser();
 
+        String title;
+        String btnTitle;
         schedule = AddSchedulerFragmentArgs.fromBundle(getArguments()).getScheduler();
         if (schedule != null) {
             action = 1;
@@ -100,7 +102,9 @@ public class AddSchedulerFragment extends Fragment implements View.OnClickListen
             tvDate.setText(schedule.getDate());
             tvTimeStart.setText(schedule.getTimeStart());
             tvTimeEnd.setText(schedule.getTimeEnd());
-            titleDialog = "Update Success!";
+            titleDialog = getString(R.string.update_success);
+            title = getString(R.string.update_title);
+            btnTitle = getString(R.string.update);
             btnDelete.setVisibility(View.VISIBLE);
 
             if (getParentFragment() != null) {
@@ -111,8 +115,13 @@ public class AddSchedulerFragment extends Fragment implements View.OnClickListen
             }
         }else {
             schedule = new Schedule();
-            titleDialog = "Register Success!";
+            titleDialog = getString(R.string.add_schedule);
+            title = getString(R.string.add_title);
+            btnTitle = getString(R.string.save);
         }
+
+        toolbar.setTitle(title);
+        btnSave.setText(btnTitle);
         btnDelete.setOnClickListener(this);
 
         addViewModel = new AddViewModel();
@@ -126,14 +135,13 @@ public class AddSchedulerFragment extends Fragment implements View.OnClickListen
 
         addViewModel.addSchedule().observe(requireActivity(), response -> {
             if (response.getSuccess() == 1) {
-                Log.d("TAG", "onViewCreated: ");
                 alertDialog = new SweetAlertDialog(requireActivity(), SweetAlertDialog.SUCCESS_TYPE);
                 alertDialog.setTitleText(titleDialog);
-                alertDialog.setContentText("Next to continue");
+                alertDialog.setContentText(getString(R.string.next));
             } else {
                 alertDialog = new SweetAlertDialog(requireActivity(), SweetAlertDialog.ERROR_TYPE);
-                alertDialog.setTitleText("Action Failed!");
-                alertDialog.setContentText("Unable to retrieve any data from server");
+                alertDialog.setTitleText(getString(R.string.action_failed));
+                alertDialog.setContentText(getString(R.string.message_error));
             }
             alertDialog.show();
             alertDialog.getButton(SweetAlertDialog.BUTTON_CONFIRM).setVisibility(View.GONE);
@@ -206,7 +214,7 @@ public class AddSchedulerFragment extends Fragment implements View.OnClickListen
         } else if (view.getId() == R.id.edt_time_end) {
             getTime(0);
         } else if (view.getId() == R.id.btn_delete) {
-            titleDialog = "Delete Scheduler Success!";
+            titleDialog = getString(R.string.delete_title);
             showAlertDelete(ALERT_ACTION_DELETE);
         }else if (view.getId() == android.R.id.home) {
             showAlertDelete(ALERT_ACTION_CLOSE);
@@ -216,9 +224,9 @@ public class AddSchedulerFragment extends Fragment implements View.OnClickListen
     private void showAlertDelete(int type) {
         boolean isDelete = type == ALERT_ACTION_CLOSE;
         alertDialog = new SweetAlertDialog(requireActivity(), SweetAlertDialog.WARNING_TYPE);
-        alertDialog.setTitleText("Are you sure?");
-        alertDialog.setContentText("Won't be able to recover this file!");
-        alertDialog.setConfirmText("Yes,delete it!");
+        alertDialog.setTitleText(getString(R.string.are_you_sure));
+        alertDialog.setContentText(getString(R.string.content_text));
+        alertDialog.setConfirmText(getString(R.string.confirm_delete));
         alertDialog.setConfirmClickListener(sDialog -> {
             sDialog.dismissWithAnimation();
             if (!isDelete) {
@@ -230,7 +238,7 @@ public class AddSchedulerFragment extends Fragment implements View.OnClickListen
                 tvTimeStart.setText("");
                 tvTimeEnd.setText("");
             }
-        }).setCancelButton("Cancel", SweetAlertDialog::dismissWithAnimation).show();
+        }).setCancelButton(getString(R.string.cancel), SweetAlertDialog::dismissWithAnimation).show();
     }
 
 

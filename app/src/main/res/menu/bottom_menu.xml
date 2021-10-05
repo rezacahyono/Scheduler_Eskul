@@ -10,9 +10,7 @@
         android:icon="@drawable/ic_collection"
         android:title="@string/collection" />
 
-    <item
-        android:id="@+id/placeholder"
-        android:title="" />
+    <item android:title="" />
 
     <item
         android:id="@+id/favoriteFragment"

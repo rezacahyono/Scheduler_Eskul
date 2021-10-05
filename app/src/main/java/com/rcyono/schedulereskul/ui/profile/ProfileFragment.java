@@ -29,7 +29,7 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         toolbar = view.findViewById(R.id.main_toolbar);
-        toolbar.setTitle("Profile");
+        toolbar.setTitle(getString(R.string.profile));
         ivAvatar = view.findViewById(R.id.iv_avatar);
         tvName = view.findViewById(R.id.tv_name);
         tvEmail = view.findViewById(R.id.tv_email);

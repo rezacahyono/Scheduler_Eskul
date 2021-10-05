@@ -1,6 +1,5 @@
 package com.rcyono.schedulereskul.ui.collection;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +45,7 @@ public class ListItemEventAdapter extends RecyclerView.Adapter<ListItemEventAdap
                 FavoriteFragmentDirections.ActionFavoriteFragmentToDetailEventFragment toDetailEvent = FavoriteFragmentDirections.actionFavoriteFragmentToDetailEventFragment();
                 toDetailEvent.setEvent(listEvent.get(position));
                 Navigation.findNavController(holder.itemView).navigate(toDetailEvent);
-            }else {
+            } else {
                 CollectionFragmentDirections.ActionCollectionFragmentToDetailEventFragment toDetailEvent = CollectionFragmentDirections.actionCollectionFragmentToDetailEventFragment();
                 toDetailEvent.setEvent(listEvent.get(position));
                 Navigation.findNavController(holder.itemView).navigate(toDetailEvent);
@@ -61,13 +60,13 @@ public class ListItemEventAdapter extends RecyclerView.Adapter<ListItemEventAdap
 
     public static class ListItemEventViewHolder extends RecyclerView.ViewHolder {
         private final ImageView ivAvatar;
+
         public ListItemEventViewHolder(@NonNull View itemView) {
             super(itemView);
             ivAvatar = itemView.findViewById(R.id.iv_event);
         }
 
         public void bind(Event event) {
-            Log.d("TAG", "bind: " + event.getImagePath());
             Glide.with(itemView.getContext())
                     .load(event.getImagePath())
                     .into(ivAvatar);

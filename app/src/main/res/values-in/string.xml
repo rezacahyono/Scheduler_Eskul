@@ -17,7 +17,7 @@
     <string name="home">Home</string>
     <string name="collection">Koleksi</string>
 
-    <string name="profile">Profile</string>
+    <string name="profile">Profil</string>
     <string name="favorite">Favorit</string>
     <string name="field_not_empty">Bidang tidak bisa kosong</string>
     <string name="title_event_eskul">Acara eskul</string>
@@ -25,4 +25,37 @@
     <string name="schedule_eskul">Jadwal eskul</string>
     <string name="dummy_type">Futsal</string>
     <string name="title_empty_fav">Anda belum memiliki acara favorit.</string>
+
+    <string name="titile_type_eskul">Tipe eskul</string>
+    <string name="description">Deskripsi</string>
+    <string name="input_desc">input desc</string>
+    <string name="place">Tempat</string>
+    <string name="input_place">input place</string>
+    <string name="date">Tanggal</string>
+    <string name="time_start">Waktu mulai</string>
+    <string name="time_end">Waktu selesai</string>
+    <string name="save">Simpan</string>
+    <string name="general">Umum</string>
+    <string name="language">Bahasa</string>
+    <string name="dark_mode">Mode gelap</string>
+    <string name="logout">Keluar</string>
+    <string name="time">Waktu</string>
+
+    <string name="update_title">Ubah jadwal</string>
+    <string name="update_success">Ubah Berhasil!</string>
+    <string name="update">Ubah</string>
+    <string name="add_schedule">Tambah Berhasil!</string>
+    <string name="add_title">Tambah jadwal</string>
+    <string name="next">oke, untuk melanjutkan</string>
+    <string name="action_failed">Aksi Gagal!</string>
+    <string name="message_error">Tidak dapat mengambil data apa pun dari server</string>
+    <string name="delete_title">Hapus Jadwal Berhasil!</string>
+    <string name="are_you_sure">Kamu yakin?</string>
+    <string name="content_text">Tidak akan bisa memulihkan file ini!</string>
+    <string name="confirm_delete">Ya, hapus!</string>
+    <string name="detail">Detail</string>
+    <string name="delete_fav">Berhasil hapus dari favorit</string>
+    <string name="add_fav">Berhasil tambah ke favorit</string>
+
+    <string name="setting">Pengaturan</string>
 </resources>

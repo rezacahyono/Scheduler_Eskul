@@ -29,7 +29,6 @@ public class FavoriteFragment extends Fragment {
     private ImageView ivEmptyFav;
     private TextView tvEmptyFav;
     private RecyclerView rvFavorite;
-
     private ListItemEventAdapter listItemEventAdapter;
 
     @Override
@@ -41,7 +40,7 @@ public class FavoriteFragment extends Fragment {
         ivEmptyFav = view.findViewById(R.id.iv_empty_fav);
         tvEmptyFav = view.findViewById(R.id.tv_title_empty_fav);
         rvFavorite = view.findViewById(R.id.rv_favorite);
-        toolbar.setTitle("Favorite");
+        toolbar.setTitle(getString(R.string.favorite));
         return view;
     }
 
@@ -54,28 +53,26 @@ public class FavoriteFragment extends Fragment {
 
         FavoriteViewModel favoriteViewModel = obtainViewModel(requireActivity());
         favoriteViewModel.getEventFromDb().observe(requireActivity(), eventFav -> {
-            if (eventFav != null) {
-                ArrayList<Event> arrayList = new ArrayList<>();
-                for (int i = 0; i < eventFav.size(); i++) {
-                    Event event = new Event();
-                    event.setId(String.valueOf(eventFav.get(i).getId()));
-                    event.setImagePath(eventFav.get(i).getImagePath());
-                    event.setTitle(eventFav.get(i).getTitle());
-                    event.setDesc(eventFav.get(i).getDesc());
-                    arrayList.add(event);
-                    Log.d("TAGS", "onViewCreated: " + eventFav.get(i).getImagePath());
-                }
-                listItemEventAdapter.setAdapter(arrayList);
+            ArrayList<Event> arrayList = new ArrayList<>();
+            for (int i = 0; i < eventFav.size(); i++) {
+                Event event = new Event();
+                event.setId(String.valueOf(eventFav.get(i).getId()));
+                event.setImagePath(eventFav.get(i).getImagePath());
+                event.setTitle(eventFav.get(i).getTitle());
+                event.setDesc(eventFav.get(i).getDesc());
+                arrayList.add(event);
+            }
+            listItemEventAdapter.setAdapter(arrayList);
+            if (arrayList.size() > 0) {
                 rvFavorite.setVisibility(View.VISIBLE);
                 ivEmptyFav.setVisibility(View.GONE);
                 tvEmptyFav.setVisibility(View.GONE);
 
-            }else {
+            } else {
                 rvFavorite.setVisibility(View.GONE);
                 ivEmptyFav.setVisibility(View.VISIBLE);
                 tvEmptyFav.setVisibility(View.VISIBLE);
             }
-
         });
 
         setupRecylerEvent();

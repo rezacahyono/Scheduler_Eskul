@@ -44,7 +44,7 @@ public class SettingFragment extends Fragment {
         btnLanguage = view.findViewById(R.id.btn_language);
         swDarkMode = view.findViewById(R.id.switch_dark_mode);
         btnLogout = view.findViewById(R.id.btn_logout);
-        toolbar.setTitle("Setting");
+        toolbar.setTitle(R.string.setting);
         return view;
     }
 

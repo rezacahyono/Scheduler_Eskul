@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.rcyono.schedulereskul.ui.detailevent.DetailEventViewModel;
 import com.rcyono.schedulereskul.ui.favorite.FavoriteViewModel;
+
 public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
     private static volatile ViewModelFactory INSTANCE;
     private final Application mApplication;

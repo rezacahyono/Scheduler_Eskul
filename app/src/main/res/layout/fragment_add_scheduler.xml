@@ -20,7 +20,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="?attr/colorSurface">
 
             <TextView
                 android:id="@+id/title_type_eskul"
@@ -29,7 +30,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/montserrat"
-                android:text="Type eskul"
+                android:text="@string/titile_type_eskul"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -73,7 +74,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/montserrat"
-                android:text="Description"
+                android:text="@string/description"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -105,7 +106,7 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/montserrat"
                     android:gravity="top"
-                    android:hint="type desc"
+                    android:hint="@string/input_desc"
                     android:inputType="text|textMultiLine|textCapSentences"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textColorHint="?android:attr/textColorPrimary" />
@@ -118,7 +119,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/montserrat"
-                android:text="Place"
+                android:text="@string/place"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -150,7 +151,7 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/montserrat"
                     android:gravity="top"
-                    android:hint="type place"
+                    android:hint="@string/input_place"
                     android:inputType="text"
                     android:maxLines="1"
                     android:textColor="?android:attr/textColorPrimary"
@@ -165,7 +166,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/montserrat"
-                android:text="Date"
+                android:text="@string/date"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -211,7 +212,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/montserrat"
-                android:text="Time start"
+                android:text="@string/time_start"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -224,7 +225,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/montserrat"
-                android:text="Time end"
+                android:text="@string/time_end"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -267,7 +268,6 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_time_end"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="135dp"
                 android:layout_height="wrap_content"
@@ -310,7 +310,7 @@
                 android:layout_marginBottom="64dp"
                 android:background="@drawable/bg_btn_login"
                 android:fontFamily="@font/montserrat"
-                android:text="Save"
+                android:text="@string/save"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="14sp"

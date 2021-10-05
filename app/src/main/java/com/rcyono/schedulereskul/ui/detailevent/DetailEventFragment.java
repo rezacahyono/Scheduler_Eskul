@@ -48,6 +48,7 @@ public class DetailEventFragment extends Fragment implements View.OnClickListene
         tvDesc = view.findViewById(R.id.tv_desc);
         ivEvent = view.findViewById(R.id.iv_event);
         btnFav = view.findViewById(R.id.btn_delete);
+        toolbar.setTitle(R.string.detail);
         return view;
     }
 
@@ -83,7 +84,6 @@ public class DetailEventFragment extends Fragment implements View.OnClickListene
             detailEventViewModel.checkIsFav(Integer.parseInt(event.getId())).observe(requireActivity(), value -> {
                 setDrawableFav(value);
                 isFav = value;
-                Log.d("TAG", "onViewCreated: " + value);
             });
         }
 
@@ -106,14 +106,14 @@ public class DetailEventFragment extends Fragment implements View.OnClickListene
             String titleDialog;
             if (isFav == 1) {
                 detailEventViewModel.delete(favoriteEvent);
-                titleDialog = "Success delete from Favorite";
+                titleDialog = getString(R.string.delete_fav);
             } else {
                 detailEventViewModel.insertEvent(favoriteEvent);
-                titleDialog = "Success Add to favorite";
+                titleDialog = getString(R.string.add_fav);
             }
             SweetAlertDialog alertDialog = new SweetAlertDialog(requireContext(), SweetAlertDialog.SUCCESS_TYPE);
             alertDialog.setTitleText(titleDialog);
-            alertDialog.setContentText("next to be continue");
+            alertDialog.setContentText(getString(R.string.next));
             alertDialog.show();
             alertDialog.getButton(SweetAlertDialog.BUTTON_CONFIRM).setVisibility(View.GONE);
         }
