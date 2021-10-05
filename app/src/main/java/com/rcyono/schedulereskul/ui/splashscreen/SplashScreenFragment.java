@@ -46,7 +46,7 @@ public class SplashScreenFragment extends Fragment {
         Handler handler = new Handler(Looper.getMainLooper());
         handler.postDelayed(() -> {
             if (isFragmentVisible) {
-                if (preferences.getUser().getUsername() != null) {
+                if (!preferences.getUser().getUsername().isEmpty()) {
                     Navigation.findNavController(view).navigate(R.id.action_splashScreenFragment_to_bottomNavFragment);
                 }else {
                     Navigation.findNavController(view).navigate(R.id.action_splashScreenFragment_to_signInFragment);

@@ -74,6 +74,8 @@ public class SettingFragment extends Fragment {
             user.setImagePath("");
             preferences.setUser(user);
             Intent intent = new Intent(requireActivity(), MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         });
 
