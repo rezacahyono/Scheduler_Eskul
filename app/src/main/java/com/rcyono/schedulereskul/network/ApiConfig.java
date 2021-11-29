@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiConfig {
 
-    public final static String BASE_URL = "https://ublmobilekmmi.web.id/uas/ublmobil_uas_k1_kel_1/server-uas/";
+    public final static String BASE_URL = "http://192.168.0.140/server-uas/";
 
     public static ApiService getApiService() {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor()

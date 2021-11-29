@@ -18,7 +18,6 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.rcyono.schedulereskul.R;
 import com.rcyono.schedulereskul.model.user.User;
 import com.rcyono.schedulereskul.preferences.AppPreferences;

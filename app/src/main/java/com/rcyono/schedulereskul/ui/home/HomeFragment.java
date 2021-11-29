@@ -1,6 +1,7 @@
 package com.rcyono.schedulereskul.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,6 +75,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         homeViewModel.getAllSchedule(user.getId());
         homeViewModel.getSchedule().observe(requireActivity(), schedule -> {
             if (schedule.getSchedule() != null) {
+                Log.d("TAG", "onViewCreated: ");
                 listItemSchedulerAdapter.setAdapter((ArrayList<Schedule>) schedule.getSchedule());
             }
         });
